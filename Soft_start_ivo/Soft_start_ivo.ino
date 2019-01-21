@@ -45,8 +45,9 @@ void setPwmFrequency(int pin, int divisor) {
 
 void loop() {                
                 Switch = analogRead(POT); 
-                Serial.print("Switch is:");
-                Serial.println(Switch) ; 
+                Serial.print("The duty cycle is:");
+                Serial.println(Duty) ; 
+                analogWrite(PWM,Duty);
                 
                   if ((Duty<20)&&(Switch>400)){
 
