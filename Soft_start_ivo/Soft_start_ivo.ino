@@ -1,6 +1,6 @@
 int POT = A0;
 int PWM =3;
-float Duty=0;
+float Duty=13;
 
 float Switch =0;
       
@@ -48,7 +48,7 @@ void loop() {
                 Serial.print("Switch is:");
                 Serial.println(Switch) ; 
                 
-                  if ((Duty<10)&&(Switch>400)){
+                  if ((Duty<20)&&(Switch>400)){
 
                     while(Duty<180){
                       Duty = Duty +1;
@@ -61,7 +61,7 @@ void loop() {
                    
                if ((Duty>150)&&(Switch<400)){
 
-                    while(Duty>5){
+                    while(Duty>2){
                       Duty = Duty - 1;
                       analogWrite(PWM,Duty);
                       delay(175);
@@ -69,6 +69,7 @@ void loop() {
                       Serial.println(Duty) ; 
                     }
                     }   
+             
                     
               
         }
