@@ -1,6 +1,6 @@
 int POT = A0;
 int PWM =3;
-float Duty=13;
+float Duty=0;
 
 float Switch =0;
       
@@ -45,27 +45,27 @@ void setPwmFrequency(int pin, int divisor) {
 
 void loop() {                
                 Switch = analogRead(POT); 
-                Serial.print("The duty cycle is:");
-                Serial.println(Duty) ; 
-                analogWrite(PWM,Duty);
+                Serial.print("Switch is:");
+                Serial.println(Switch) ; 
+              
                 
-                  if ((Duty<20)&&(Switch>400)){
+                  if ((Duty<10)&&(Switch>400)){
 
-                    while(Duty<180){
+                    while(Duty<240){
                       Duty = Duty +1;
                       analogWrite(PWM,Duty);
-                      delay(175);
+                      delay(100);
                       Serial.print("The duty cycle is:");
                       Serial.println(Duty) ; 
                     }
                     }   
                    
-               if ((Duty>150)&&(Switch<400)){
+               if ((Duty>230)&&(Switch<400)){
 
                     while(Duty>2){
                       Duty = Duty - 1;
                       analogWrite(PWM,Duty);
-                      delay(175);
+                      delay(100);
                       Serial.print("The duty cycle is:");
                       Serial.println(Duty) ; 
                     }
